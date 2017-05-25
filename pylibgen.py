@@ -9,22 +9,13 @@ SEARCH_URL = 'http://libgen.io/search.php?req={}&res=100&column=def'
 LOOKUP_URL = 'http://libgen.io/json.php?ids={}&fields={}'
 DOWNLOAD_URL = 'http://libgen.io/get.php?md5={}'
 
-
 def search(query,fields=['title', 'author', 'year', 'edition', 'pages', 'identifier', 'extension', 'filesize', 'md5']):
-
     url = SEARCH_URL.format(quote_plus(query))
     r = requests.get(url); r.raise_for_status()
     ids = re.findall("<tr.*?><td>(\d+)", r.text)
     return requests.get(LOOKUP_URL.format(','.join(ids), ','.join(fields))).json()
 
 def get_download_url(md5):
-    '''Given the libgen MD5 hash of a book, this returns a valid but
-    temporary (keys expire) URL for a direct download. The key is parsed
-    from the initial redirect to ads.php.
-
-    If you want to support Library Genesis, setting enable_ads to True
-    will just return the download URL with no key, which redirects to ads.php.
-    '''
     url = DOWNLOAD_URL.format(md5)
     r = requests.get(url); r.raise_for_status()
     key = re.findall("&key=(.*?)'", r.text)[0]
