@@ -1,9 +1,9 @@
-*USAGE
+* USAGE
+#+begin_src python
 data = search('Principia Mathematica')
-
 # Check the data array for the book you would like...
-
 download(data[x])
+#+end_src
 
 # WIN!
 
