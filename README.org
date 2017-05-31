@@ -2,7 +2,6 @@
 #+begin_src
 $ python -i pylibgen.py
 #+end_src
-
 #+begin_src python
 data = search('Principia Mathematica')
 # Pretty print the results
