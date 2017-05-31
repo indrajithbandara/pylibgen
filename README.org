@@ -1,8 +1,10 @@
 * USAGE
 #+begin_src python
 data = search('Principia Mathematica')
-# Check the data array for the book you would like...
-download(data[x])
+# Pretty print the results
+pp(data)
+# Choose from the data array and provide a root save directory and filename
+download(data[x], 'rootsavedir', 'filename.ext')
 #+end_src
 
 # WIN!
