@@ -9,5 +9,9 @@ download(data[x], 'rootsavedir', 'filename.ext')
 
 # WIN!
 
+* TODOS
++ Rewrite in guile
++ Curses interface
+
 * LICENSE
 MIT Licence
