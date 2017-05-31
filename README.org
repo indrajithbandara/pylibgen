@@ -1,3 +1,6 @@
+* REQUIREMENTS
++ Python 3
+
 * USAGE
 #+begin_src
 $ python -i pylibgen.py
